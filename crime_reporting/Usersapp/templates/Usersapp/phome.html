@@ -1,0 +1,19 @@
+{% extends "Police/layout.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mb-4" style="margin-top:30px; margin-left:530px;width:500px; height: 720px">
+
+{% if 'username' in request.session %}
+<h1>{{ request.session.username }}</h1>
+<h1>{{ request.session.password }}</h1>
+
+{% endif%}
+ 
+ 
+</div>
+
+
+
+
+{% endblock content %}

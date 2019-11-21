@@ -1,0 +1,63 @@
+{% extends "Usersapp/layout2.html" %}
+
+{% block content %}
+{% load static %}
+ 
+  <div class="container mb-4" style="margin-top:120px; margin-left:400px; margin-bottom: 80px; box-shadow: 10px 10px 5px grey;width:1000px; height: 550px">
+      <h1 style="margin-left:270px">Complaint Details</h1>
+      <div class="row">
+        <div class="col-4 mt-3" style="height: 480px">
+            <table class="table table-striped ml-4">
+                <tbody>
+                   <tr>
+                     <td>
+                     <p><strong>Username</strong></p></td></tr>
+                       <tr><td> <p><strong>Mobile.No</strong></p></td></tr>
+                         <tr><td>
+                            <p><strong>Address</strong></p></td></tr>
+                              <tr><td>
+                                  <p><strong>City<strong</p></td>
+                                     </tr>
+                                  <tr><td><p><strong>Complaint Title<strong</p></td></tr>
+                                    <tr><td>
+                                    <p><strong>Complaint Detail</strong></p></td></tr></tbody></table>
+        
+        </div>
+        <div class="col-8 mt-3" style="height: 480px">
+            <table class="table table-striped " >
+                <tbody>
+                  {% if 'username' in request.session %}
+                  {% for data in datas %} 
+                  <tr>
+                      <td>
+                          <p>{{data.username}}</p></td></tr>
+                        <tr><td><p>{{data.mobile}}</p></td></tr>
+                          <tr><td>
+                              <p>{{data.address}}</p></td></tr>
+                               <tr><td>
+                                  <p>{{data.city}}</p></td>
+                                      </tr>
+                                   <tr><td><p>{{data.complaint_title}}</p></td></tr>
+                                     <tr><td>
+                                        <p>{{data.complaint_details}}</p></td></tr>
+                  
+                      {% endfor %}  
+                      {% endif%}
+                </tbody>
+             </table>
+        
+        
+        
+        
+        
+        </div>
+      </div>
+
+   
+  </div>
+
+
+
+
+
+{% endblock content %}

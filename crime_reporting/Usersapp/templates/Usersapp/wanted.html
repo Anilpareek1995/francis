@@ -1,0 +1,60 @@
+{% extends "Usersapp/layout2.html" %}
+{% block content %}
+{% load static %}
+{% for data in datas %}
+<div  style="height: 400px;">
+<div class="container mb-4" style="margin-top:30px; margin-left:550px; box-shadow: 10px 10px 5px grey;width:520px; height: 305px">
+   
+  <div class="media">
+    <img alt="pic"  src="{{ data.photo.url}}">
+    <div class="media-body ml-2">
+      <table>
+        <tr>
+          <td><p>Name</p></td>
+          <td><p class="ml-2">{{data.uname}}</p></td>
+        </tr>
+        <tr>
+          <td><p>Height</p></td>
+          <td><p class="ml-2">{{data.height}}</p></td>
+        </tr>
+        <tr>
+          <td><p>Color</p></td>
+          <td><p class="ml-2">{{data.color}}</p></td>
+        </tr>
+        <tr>
+          <td><p>Crime Type</p></td>
+          <td><p class="ml-2">{{data.crime_type}}</p></td>
+        </tr>
+        <tr>
+          <td><p>Crime Area</p></td>
+          <td><p class="ml-2">{{data.crime_area}}</p></td>
+        </tr>
+        <tr>
+          <td><p>Crime Spot</p></td>
+          <td><p class="ml-2">{{data.crime_spot}}</p></td>
+        </tr>
+        
+      </table>
+    </div>
+  </div>
+</div>
+  {% endfor %}
+  <div class="container " style="margin-top:30px; margin-left:550px">
+      <span class="step-links">
+          {% if datas.has_previous %}
+              <a class="btn btn-outline-info mb-4" href="?page=1">&laquo; first</a>
+              <a class="btn btn-outline-info mb-4" href="?page={{ datas.previous_page_number }}">previous</a>
+          {% endif %}
+  
+          <span class="current btn btn-outline-info mb-4">
+              Page {{ datas.number }} of {{ datas.paginator.num_pages }}.
+          </span>
+  
+          {% if datas.has_next %}
+              <a class="btn btn-outline-info mb-4" href="?page={{ datas.next_page_number }}">next</a>
+              <a  class="btn btn-outline-info mb-4" href="?page={{ datas.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+      </span>
+  </div>
+  </div>  
+{% endblock content %}

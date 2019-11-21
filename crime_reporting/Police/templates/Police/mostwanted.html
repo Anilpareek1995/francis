@@ -1,0 +1,79 @@
+{% extends "Police/layout.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<html>
+<head>
+</head>
+<body>
+
+          
+<div class="container mb-4" style="margin-top:30px; margin-left:530px; border-radius: 10px; box-shadow: 10px 10px 5px grey;width:450px; height: 820px">
+<form class="form-group" action="{% url 'mostwanted' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Most Wanted</legend>
+    <div id="div_id_name" class="form-group">
+    <label for="id_name" class="col-form-label ">
+      Name
+    </label><input type="text"  name="name"  class="textinput textInput form-control" id="id_name">
+    </div>
+      
+        
+    <div id="div_id_height" class="form-group">
+        <label for="id_height" class="col-form-label ">
+          Height
+        </label><input type="text"  class="textinput textInput form-control" id="id_height" name="height">
+    </div>
+    <div id="div_id_color" class="form-group">
+        <label for="id_color" class="col-form-label ">
+          Color
+        </label><input type="text"  name="color"  class="textinput textInput form-control" id="id_color">
+        
+     </div>
+     <div id="div_id_crime_type" class="form-group">
+        <label for="id_crime_type" class="col-form-label ">
+          Crime Type
+        </label><select class="mdb-select form-control" name="crime_type">
+  <option value="" disabled selected>Choose your option</option>
+  <option value="1">robery</option>
+  <option value="2">rape</option>
+  <option value="3">mudrer</option>
+</select>
+
+        </div>
+    <div id="div_id_crime_area" class="form-group">
+            <label for="id_crime_area" class="col-form-label ">
+              Crime Area
+            </label><input type="text" class="textinput textInput form-control" id="id_crime_area" name="crime_area">
+        </div>
+        
+    
+    <div id="div_id_crime_spot" class="form-group">
+        <label for="id_crime_spot" class="col-form-label ">
+          Crime Spot
+        </label><input type="text" class="textinput textInput form-control" id="id_crime_spot" name="crime_spot">
+        </div>
+        
+
+     
+        <div id="div_id_image" class="form-group">
+           <label for="id_image" class="col-form-label  requiredField">
+            Image<span class="asteriskField">*</span> </label>
+             <div class=""> <input type="file" name="img" accept="image/*" class="clearablefileinput" required id="id_image"> 
+            </div> </div> 
+    </fieldset>
+            <div>
+                <button class="btn btn-outline-info" type ="submit">Submit</button>
+                </div>
+   
+
+
+</form>
+
+
+
+</div>
+</body>
+</html>
+
+{% endblock content %}

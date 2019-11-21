@@ -1,0 +1,71 @@
+{% extends "Police/layout.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<html>
+<head>
+</head>
+<body>
+
+          
+<div class="container mb-4" style="margin-top:30px; margin-left:530px; box-shadow: 10px 10px 5px grey;width:500px; height: 720px">
+<form class="form-group" action="{% url 'pmissing' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Missing People</legend>
+    <div id="div_id_name" class="form-group">
+    <label for="id_name" class="col-form-label ">
+      Name
+    </label><input type="text"  name="t1"  class="textinput textInput form-control" id="id_name">
+    </div>
+      
+        
+    <div id="div_id_height" class="form-group">
+        <label for="id_height" class="col-form-label ">
+          Mobile
+        </label><input type="text"  class="textinput textInput form-control" id="id_height" name="t2">
+    </div>
+    <div id="div_id_color" class="form-group">
+        <label for="id_color" class="col-form-label ">
+          Address
+        </label><input type="text"  name="t3"  class="textinput textInput form-control" id="id_color">
+        
+     </div>
+     
+    <div id="div_id_crime_area" class="form-group">
+            <label for="id_crime_area" class="col-form-label ">
+              City
+            </label><input type="text" class="textinput textInput form-control" id="id_crime_area" name="t4">
+        </div>
+        
+    
+   
+        
+
+     
+        <div id="div_id_image" class="form-group">
+           <label for="id_image" class="col-form-label  requiredField">
+            Image<span class="asteriskField">*</span> </label>
+             <div class=""> <input type="file" name="imgfile" accept="image/*" class="clearablefileinput" required id="id_image"> 
+            </div> </div> 
+
+            <div id="div_id_crime_spot" class="form-group">
+                <label for="id_crime_spot" class="col-form-label ">
+                  Details
+                </label><input type="text" class="textinput textInput form-control" id="id_crime_spot" name="t6">
+                </div>
+    </fieldset>
+            <div>
+                <button class="btn btn-outline-info" type ="submit">Submit</button>
+                </div>
+   
+
+
+</form>
+
+
+
+</div>
+</body>
+</html>
+
+{% endblock content %}
